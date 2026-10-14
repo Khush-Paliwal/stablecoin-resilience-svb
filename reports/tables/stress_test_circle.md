@@ -1,0 +1,6 @@
+|                     |   days_insolvent_pct |   median_cushion_pct_supply |   min_cushion_bn | min_cushion_date   |   svb_window_min_bn |   svb_window_days_insolvent | svb_window_verdict   |
+|:--------------------|---------------------:|----------------------------:|-----------------:|:-------------------|--------------------:|----------------------------:|:---------------------|
+| Baseline            |                11.22 |                     0.1673  |           -1.411 | 2022-10-12         |              -1.223 |                           1 | FAIL                 |
+| A: Liquidity run    |                14.93 |                     0.1628  |           -1.503 | 2022-10-12         |              -1.228 |                           1 | FAIL                 |
+| B: Flash crash      |                33.33 |                     0.04921 |           -1.541 | 2022-10-12         |              -1.341 |                           5 | FAIL                 |
+| C: Credit contagion |                33.33 |                     0.04921 |           -1.541 | 2022-10-12         |              -1.341 |                           5 | FAIL                 |
