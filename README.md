@@ -1,7 +1,7 @@
 # Thin Cushions and False Security
 ### Stablecoin resilience under the GENIUS Act, using the 2023 SVB failure as a natural experiment
 
-[![CI](https://github.com/OWNER/stablecoin-resilience-svb/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/stablecoin-resilience-svb/actions/workflows/ci.yml)
+[![CI](https://github.com/Khush-Paliwal/stablecoin-resilience-svb/actions/workflows/ci.yml/badge.svg)](https://github.com/Khush-Paliwal/stablecoin-resilience-svb/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
@@ -82,7 +82,7 @@ stablecoin-resilience-svb/
 ## Quickstart
 
 ```bash
-git clone https://github.com/OWNER/stablecoin-resilience-svb.git
+git clone https://github.com/Khush-Paliwal/stablecoin-resilience-svb.git
 cd stablecoin-resilience-svb
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -e ".[dev]"                                # add ,exploratory for GARCH/DCC (arch)
