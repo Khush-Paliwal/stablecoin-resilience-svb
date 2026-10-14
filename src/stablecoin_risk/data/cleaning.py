@@ -69,7 +69,10 @@ def find_gaps(index: pd.DatetimeIndex, bar: pd.Timedelta) -> pd.DataFrame:
     """
     if len(index) < 2:
         return pd.DataFrame(columns=["prev_ts", "n_missing"])
-    steps = np.round(np.diff(index.asi8) / bar.value).astype(np.int64) - 1
+    # Timedelta arithmetic, not raw integers: pandas >= 3 keeps the source resolution
+    # (s / ms / us), so ``asi8`` is not guaranteed to be in nanoseconds.
+    ratio = ((index[1:] - index[:-1]) / bar).to_numpy(dtype=float)
+    steps = np.round(ratio).astype(np.int64) - 1
     pos = np.flatnonzero(steps > 0)
     return pd.DataFrame({"prev_ts": index[pos], "n_missing": steps[pos]})
 

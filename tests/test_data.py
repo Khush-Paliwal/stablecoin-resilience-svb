@@ -59,6 +59,14 @@ def test_find_gaps(bars):
     assert gaps["prev_ts"].iloc[0] == bars.index[99]
 
 
+@pytest.mark.parametrize("unit", ["s", "ms", "us", "ns"])
+def test_find_gaps_independent_of_datetime_resolution(bars, unit):
+    """pandas >= 3 keeps the source resolution; gap detection must not assume nanoseconds."""
+    idx = _with_gap(bars, 100, 7).index.as_unit(unit)
+    gaps = cleaning.find_gaps(idx, pd.Timedelta("1min"))
+    assert len(gaps) == 1 and gaps["n_missing"].iloc[0] == 7
+
+
 def test_locf_ets_and_long_gaps(bars):
     holed = _with_gap(_with_gap(_with_gap(bars, 2_000, 40), 1_000, 12), 500, 3)
     filled, report = cleaning.fill_gaps(holed, name="x")

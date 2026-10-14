@@ -73,7 +73,7 @@ stablecoin-resilience-svb/
 │   ├── 05_peg_deviation_regressions.ipynb
 │   ├── 06_reserves_and_stress_tests.ipynb
 │   └── exploratory/              # work in progress: GENIUS Act event study, BTC GARCH/DCC
-├── tests/                        # 34 tests: estimator unit tests, causality checks, paper-number regressions
+├── tests/                        # 38 tests: estimator unit tests, causality checks, paper-number regressions
 ├── data/                         # public data only - see data/README.md
 ├── reports/                      # generated tables (CSV + Markdown), figures, RESULTS.md; paper/ = submitted figures
 └── docs/methodology.md           # equations, assumptions, and corrections to the competition code
@@ -88,7 +88,7 @@ python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\
 pip install -e ".[dev]"                                # add ,exploratory for GARCH/DCC (arch)
 
 stablecoin-risk run all        # ~1 min: clean data -> every table and figure -> reports/RESULTS.md
-pytest                         # 34 tests
+pytest                         # 38 tests
 ```
 
 Individual steps: `stablecoin-risk run clean liquidity basis kyle spillover regressions stress`.
